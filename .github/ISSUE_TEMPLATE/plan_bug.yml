@@ -1,0 +1,53 @@
+name: 기획 버그
+description: 1.0 기획안에서 서로 어긋나거나 빠진 부분을 알린다
+title: "[기획 버그] "
+# 저장소마다 버그 라벨 이름이 다르다. 저장소에 없는 라벨은 무시되므로 변형을 모두 적는다.
+labels: ["bug", "🐛 bug", "🐞 bug"]
+# 작성자에게 프로젝트 쓰기 권한이 있을 때만 자동 등록된다.
+projects: ["CRUXDATA-KR/33"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        기획안의 **어디가, 왜** 잘못됐는지 적어 주세요.
+        등록한 뒤 댓글에 전략기획팀을 태그해 주세요.
+
+  - type: dropdown
+    id: screen
+    attributes:
+      label: 대상 화면
+      options:
+        - 홈
+        - 로그
+        - 대시보드
+        - 알림
+        - 데이터소스
+        - 결재
+        - 관리
+        - 헤더
+        - 사용자 설정
+        - 기타
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: 문제점
+      description: 기획안끼리 어긋나는 곳, 빠진 흐름, 구현할 수 없는 내용을 한두 문장으로 적어 주세요.
+      placeholder: 예) 알림 규칙 목록에는 '사용 중지' 상태가 있는데 상태 필터에는 해당 항목이 없다.
+    validations:
+      required: true
+
+  - type: textarea
+    id: fix
+    attributes:
+      label: 수정 방향
+      description: 어떻게 바뀌어야 하는지 떠오르면 적어 주세요. 없으면 비워 두셔도 됩니다.
+      placeholder: 예) 상태 필터에 '사용 중지' 항목을 추가한다.
+
+  - type: textarea
+    id: extra
+    attributes:
+      label: 스크린샷 / 참고
+      description: 기획안 캡처, 관련 이슈·PR 링크 등을 자유롭게 붙여 주세요.
